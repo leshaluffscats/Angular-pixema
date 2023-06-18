@@ -1,11 +1,8 @@
 @import '../../shared/variables.scss';
 @import '../../shared/mixins.scss';
 
-div {
+section {
     @include flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 64px;
-    height: 56px;
-    border: 1px solid red;
-
 }
