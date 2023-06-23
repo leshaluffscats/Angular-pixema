@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./movie-content.component.scss'],
 })
 export class MovieContentPageComponent implements OnInit {
-  movie$: Observable<any[]>;
+  movieId: any;
+  movie: any;
 
   constructor(
     private moviesService: MoviesService,
@@ -19,7 +20,10 @@ export class MovieContentPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // const movieId = this.route.snapshot.paramMap.get("id");
-    // this.movie$ = this.moviesService.getMovieById(movieId);
+    this.route.paramMap.subscribe((params) => { this.movieId = params.get('id'); });
+
+    this.moviesService.getMovieById(this.movieId).subscribe((res) => {
+      this.movie = res;
+    });
   }
 }

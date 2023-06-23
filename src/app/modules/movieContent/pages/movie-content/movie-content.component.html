@@ -1,4 +1,17 @@
 <main>
     <app-aside></app-aside>
-    <p></p>
+    <section>
+        <div>
+            <img [src]="movie?.poster.url" alt="movie?.name">
+        </div>
+        <div>
+            <h1>{{movie?.name}}</h1>
+            <div>
+                <span title='Оценка Кинопоиска'>{{movie?.rating?.kp}}</span>
+                <span title='Оценка Imdb'>{{movie?.rating?.imdb}}</span>
+            </div>
+            <p>{{movie.description}}</p>
+        </div>
+        <div></div>
+    </section>
 </main>
