@@ -17,6 +17,7 @@ import { SettingsPageComponent } from './modules/settings/pages/settings-page/se
 import { TrendsPageComponent } from './modules/trends/pages/trends-page/trends-page.component';
 import { FavoritesPageComponent } from './modules/favorites/pages/favorites-page/favorites-page.component';
 import { MovieContentPageComponent } from './modules/movieContent/pages/movie-content/movie-content.component';
+import { MovieTableDataComponent } from './modules/movieContent/components/movie-table-data/movie-table-data.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MovieContentPageComponent } from './modules/movieContent/pages/movie-co
     SettingsPageComponent,
     TrendsPageComponent,
     FavoritesPageComponent,
-    MovieContentPageComponent, 
+    MovieContentPageComponent,
+    MovieTableDataComponent, 
   ],
   imports: [
     BrowserModule,

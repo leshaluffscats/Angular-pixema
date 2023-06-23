@@ -1,17 +1,18 @@
 <main>
     <app-aside></app-aside>
     <section>
-        <div>
-            <img [src]="movie?.poster.url" alt="movie?.name">
+        <div class="left-side">
+            <img [src]="movie?.poster.url" [alt]="movie?.name">
+            <button>Add to favorites</button>
         </div>
-        <div>
+        <div class="right-side">
             <h1>{{movie?.name}}</h1>
-            <div>
+            <div class="movie-ratings">
                 <span title='Оценка Кинопоиска'>{{movie?.rating?.kp}}</span>
                 <span title='Оценка Imdb'>{{movie?.rating?.imdb}}</span>
             </div>
             <p>{{movie.description}}</p>
+            <app-movie-table-data></app-movie-table-data>
         </div>
-        <div></div>
     </section>
 </main>

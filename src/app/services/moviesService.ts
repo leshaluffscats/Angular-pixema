@@ -11,8 +11,8 @@ import { API_URL, THIRD_API_HEADER } from '../shared/constants/constants';
 export class MoviesService {
     constructor(private http: HttpClient) { }
 
-    getMovies(): Observable<any> {
-        return this.http.get(`${API_URL}v1.3/movie?page=1&limit=10`, {
+    getMovies(page: number, limit: number): Observable<any> {
+        return this.http.get(`${API_URL}v1.3/movie?page=${page}&limit=${limit}`, {
             headers: THIRD_API_HEADER
         })
     }

@@ -15,12 +15,12 @@ export class MovieContentPageComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private router: Router,
+    // private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => { this.movieId = params.get('id'); });
+    this.route.paramMap.subscribe((params: ParamMap) => { this.movieId = params.get('id'); });
 
     this.moviesService.getMovieById(this.movieId).subscribe((res) => {
       this.movie = res;

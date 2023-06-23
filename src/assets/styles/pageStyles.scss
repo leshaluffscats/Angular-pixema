@@ -1,0 +1,7 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+main{
+    @include flex;
+    align-items: flex-start;
+}
