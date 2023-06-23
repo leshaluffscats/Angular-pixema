@@ -1,0 +1,10 @@
+@import '../../../assets/styles/mixins.scss';
+@import '../../../assets/styles/variables.scss';
+
+div {
+    @include flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    height: 56px;
+
+}

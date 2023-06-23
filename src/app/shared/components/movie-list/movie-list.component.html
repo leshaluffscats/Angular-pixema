@@ -1,0 +1,10 @@
+<section>
+    <app-movie-item 
+    *ngFor="let movie of movies" 
+    [movieName]="movie.name" 
+    [image]="movie.poster.previewUrl"
+    [movieGenres]="movie.genres"
+    [movieId]="movie.id"
+    >
+    </app-movie-item>
+</section>

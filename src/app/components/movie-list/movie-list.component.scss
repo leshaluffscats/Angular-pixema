@@ -1,8 +1,0 @@
-@import '../../shared/variables.scss';
-@import '../../shared/mixins.scss';
-
-section {
-    @include flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}

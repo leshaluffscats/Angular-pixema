@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SettingsPageComponent } from './modules/settings/pages/settings-page/settings-page.component';
+import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
+import { TrendsPageComponent } from './modules/trends/pages/trends-page/trends-page.component';
+import { FavoritesPageComponent } from './modules/favorites/pages/favorites-page/favorites-page.component';
+import { MovieContentPageComponent } from './modules/movieContent/pages/movie-content/movie-content.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: "home", component: HomePageComponent},
+  {path: "settings", component: SettingsPageComponent},
+  {path: "trends", component: TrendsPageComponent},
+  {path: "favorites", component: FavoritesPageComponent},
+  {path: "movie/:id", component: MovieContentPageComponent},
+  {path: "", redirectTo: "/home", pathMatch: "full"},
+  {path: "**", component: HomePageComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
