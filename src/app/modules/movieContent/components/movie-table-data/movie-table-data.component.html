@@ -1,28 +1,29 @@
 <table>
     <tbody>
         <tr>
-            <td>Year</td>
-            
+            <td>Year:</td>
+            <td>{{movieData.year}}</td>
         </tr>
         <tr>
-            <td>Released</td>
-           
+            <td>Released:</td>
+            <td>{{showDate()}}</td>
         </tr>
         <tr>
-            <!-- <td>{countries.length > 1 ? "Countries" : "Country"}</td> -->
-          <td>countries</td>
+            <td>{{movieData.countries.length > 1 ? "Countries" : "Country"}}:</td>
+            <td><span *ngFor="let country of movieData.countries">{{country.name}}</span></td>
         </tr>
         <tr>
-            <td>Actors</td>
-         
+            <td>Actors:</td>
+            <td><span *ngFor="let actor of filterPersons('actor')">{{actor.name}}</span></td>
         </tr>
         <tr>
-            <td>Directors</td>
-          
+            <td>Directors:</td>
+            <td><span *ngFor="let director of filterPersons('director')">{{director.name}}</span></td>
+
         </tr>
         <tr>
-            <td>Writers</td>
-           
+            <td>Writers:</td>
+            <td><span *ngFor="let writer of filterPersons('writer')">{{writer.name}}</span></td>
         </tr>
     </tbody>
 </table>

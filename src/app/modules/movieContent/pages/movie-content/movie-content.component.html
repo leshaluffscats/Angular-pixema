@@ -11,8 +11,8 @@
                 <span title='Оценка Кинопоиска'>{{movie?.rating?.kp}}</span>
                 <span title='Оценка Imdb'>{{movie?.rating?.imdb}}</span>
             </div>
-            <p>{{movie.description}}</p>
-            <app-movie-table-data></app-movie-table-data>
+            <p>{{movie?.description}}</p>
+            <app-movie-table-data [movieData]="movieData()"></app-movie-table-data>
         </div>
     </section>
 </main>

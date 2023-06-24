@@ -9,6 +9,10 @@ import { Component, Input } from '@angular/core';
 export class MovieItemComponent {
   @Input() image: string;
   @Input() movieName: string;
-  @Input() movieGenres: string[];
+  @Input() movieGenres: any[];
   @Input() movieId: string;
+
+  cutGenresArr(){
+    return this.movieGenres.slice(0,3);
+  }
 }

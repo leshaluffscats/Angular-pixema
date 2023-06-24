@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-movie-table-data',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./movie-table-data.component.scss']
 })
 export class MovieTableDataComponent {
+  @Input() movieData: any;
 
+  showDate(){
+    return new Date(this.movieData.premiere.world).toLocaleDateString();
+  }
+
+  filterPersons(str: string){
+    return this.movieData.persons.filter((el: any)=> el.enProfession === str)
+  }
 }

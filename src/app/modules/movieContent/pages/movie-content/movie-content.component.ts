@@ -26,4 +26,14 @@ export class MovieContentPageComponent implements OnInit {
       this.movie = res;
     });
   }
+
+  movieData(){
+    return{
+      countries: this.movie.countries,
+      persons: this.movie.persons,
+      year: this.movie.year,
+      premiere: this.movie.premiere,
+    }
+  }
+
 }

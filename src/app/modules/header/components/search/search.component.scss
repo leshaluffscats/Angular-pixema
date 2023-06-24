@@ -2,6 +2,10 @@
 @import '../../../../../assets/styles/mixins.scss';
 
 
+
+:host {
+    width: 60%;
+}
 .searchWrapper {
     background-color: transparent;
     border: 1px solid $context-color-light;
@@ -10,27 +14,28 @@
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
-    margin: 0 2% 0 6%;
     padding-right: 20px;
 
     form {
         @include flex;
+
         width: 100%;
         height: 100%;
 
+        img {
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            color: $context-color-white;
+            background-color: transparent;
+            @include bodytext;
+            padding-left: 20px;
+            font-size: 18px;
+        }
     }
 
-    img {
-        cursor: pointer;
-    }
 
-    input {
-        width: 100%;
-        height: 100%;
-        color: $context-color-white;
-        background-color: transparent;
-        @include bodytext;
-        padding-left: 20px;
-        font-size: 18px;
-    }
 }

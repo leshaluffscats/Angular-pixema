@@ -1,0 +1,27 @@
+@import '../../../../../assets/styles/variables.scss';
+
+table{
+    margin-bottom: 56px;
+    border-spacing: 20px;
+
+    tr {
+        font-weight: 500;
+        td {
+            word-wrap: break-word;
+
+            span {
+                &:not(:last-child):after{
+                    content: ",  ";
+                }
+            }
+        }
+
+        td:first-of-type {
+            font-weight: 600;
+            color: $context-color-light;
+            width: 82px;
+            margin-right: 54px;
+        }
+
+    }
+}

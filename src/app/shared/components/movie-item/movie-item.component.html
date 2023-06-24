@@ -3,7 +3,7 @@
         <img [src]="image" alt="">
     </div>
     <h3>{{ movieName }}</h3>
-    <div>
-        <!-- <span *ngFor="for let genre of movieGenres">{{genre}}</span> -->
-    </div>
+    <p class="genres">
+        <span *ngFor="let genre of cutGenresArr()">{{genre.name}}</span>
+    </p>
 </article>

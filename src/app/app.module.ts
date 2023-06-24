@@ -18,6 +18,8 @@ import { TrendsPageComponent } from './modules/trends/pages/trends-page/trends-p
 import { FavoritesPageComponent } from './modules/favorites/pages/favorites-page/favorites-page.component';
 import { MovieContentPageComponent } from './modules/movieContent/pages/movie-content/movie-content.component';
 import { MovieTableDataComponent } from './modules/movieContent/components/movie-table-data/movie-table-data.component';
+import { ThemeBtnComponent } from './shared/components/theme-btn/theme-btn.component';
+import { SignInFormComponent } from './modules/signIn/components/sign-in-form/sign-in-form.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { MovieTableDataComponent } from './modules/movieContent/components/movie
     TrendsPageComponent,
     FavoritesPageComponent,
     MovieContentPageComponent,
-    MovieTableDataComponent, 
+    MovieTableDataComponent,
+    ThemeBtnComponent,
+    SignInFormComponent, 
   ],
   imports: [
     BrowserModule,
