@@ -1,1 +1,18 @@
-<p>sign-in-form works!</p>
+<form [formGroup]="signInForm">
+    <h2>Sign in</h2>
+    <label>
+        Email
+        <input type="email" [formControlName]="'email'">
+    </label>
+    <label>
+        Password
+        <input type="password" [formControlName]="'password'">
+    </label>
+    <a href="#">Forgot Password?</a>
+    <button type="submit" [disabled]="signInForm.invalid" [ngClass]="{disabled: signInForm.invalid}">Sign In</button>
+    <p>Don't have an account? <a href="#">Sign Up</a></p>
+
+    <div>
+        {{signInForm.value | json}}
+    </div>
+</form>

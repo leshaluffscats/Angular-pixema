@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './movie-content.component.html',
   styleUrls: ['./movie-content.component.scss'],
 })
+
 export class MovieContentPageComponent implements OnInit {
   movieId: any;
   movie: any;

@@ -1,10 +1,9 @@
 <section>
-    <app-movie-item 
-    *ngFor="let movie of movies" 
-    [movieName]="movie.name" 
-    [image]="movie.poster.previewUrl"
-    [movieGenres]="movie.genres"
-    [movieId]="movie.id"
-    >
-    </app-movie-item>
+    <div>
+        <app-movie-item *ngFor="let movie of movies" [movieName]="movie.name" [image]="movie.poster.previewUrl"
+            [movieGenres]="movie.genres" [movieId]="movie.id">
+        </app-movie-item>
+    </div>
+    <p>{{page}}</p>
+    <app-show-more-btn [page]="page" (changedPage)="changePage($event)"></app-show-more-btn>
 </section>

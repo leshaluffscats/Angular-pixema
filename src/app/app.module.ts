@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { MovieContentPageComponent } from './modules/movieContent/pages/movie-co
 import { MovieTableDataComponent } from './modules/movieContent/components/movie-table-data/movie-table-data.component';
 import { ThemeBtnComponent } from './shared/components/theme-btn/theme-btn.component';
 import { SignInFormComponent } from './modules/signIn/components/sign-in-form/sign-in-form.component';
+import { SignInPageComponent } from './modules/signIn/pages/sign-in-page/sign-in-page.component';
+import { ShowMoreBtnComponent } from './shared/components/show-more-btn/show-more-btn.component';
 
 
 @NgModule({
@@ -40,12 +43,15 @@ import { SignInFormComponent } from './modules/signIn/components/sign-in-form/si
     MovieContentPageComponent,
     MovieTableDataComponent,
     ThemeBtnComponent,
-    SignInFormComponent, 
+    SignInFormComponent,
+    SignInPageComponent,
+    ShowMoreBtnComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

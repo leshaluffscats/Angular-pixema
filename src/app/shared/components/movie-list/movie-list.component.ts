@@ -10,13 +10,16 @@ import { MoviesService } from 'src/app/services/moviesService';
 
 export class MovieListComponent implements OnInit {
   movies: any[] = [];
-
+  page: number;
   constructor(private MoviesService: MoviesService) { }
 
   ngOnInit(): void {
-    this.MoviesService.getMovies(1, 12).subscribe(({docs}) => {
+    this.MoviesService.getMovies(this.page = 1, 12).subscribe(({ docs }) => {
       this.movies = docs;
     })
   }
 
+  changePage(page: number) {
+    this.page = page;
+  }
 }

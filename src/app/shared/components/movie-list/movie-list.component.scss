@@ -4,7 +4,12 @@
 
 section {
     @include flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 30px;
+    flex-direction: column;
+    div {
+        @include flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+
 }
