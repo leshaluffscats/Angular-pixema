@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -23,7 +23,10 @@ import { ThemeBtnComponent } from './shared/components/theme-btn/theme-btn.compo
 import { SignInFormComponent } from './modules/signIn/components/sign-in-form/sign-in-form.component';
 import { SignInPageComponent } from './modules/signIn/pages/sign-in-page/sign-in-page.component';
 import { ShowMoreBtnComponent } from './shared/components/show-more-btn/show-more-btn.component';
-
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { movieReducer } from './store/reducers/movies.reducer';
+import { themeReducer } from './store/reducers/theme.reducer';
 
 @NgModule({
   declarations: [
@@ -51,9 +54,11 @@ import { ShowMoreBtnComponent } from './shared/components/show-more-btn/show-mor
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ movies: movieReducer, theme: themeReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

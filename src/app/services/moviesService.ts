@@ -21,4 +21,10 @@ export class MoviesService {
             headers: THIRD_API_HEADER
         })
     }
+
+    searchForAMovie(searchValue: string | null): Observable<any>{
+        return this.http.get(`${API_URL}v1.2/movie/search?page=1&limit=10&query=${searchValue}`, {
+            headers: THIRD_API_HEADER
+        })
+    }
 }

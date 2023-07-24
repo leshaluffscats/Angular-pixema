@@ -6,11 +6,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./show-more-btn.component.scss']
 })
 export class ShowMoreBtnComponent {
-  @Input() page: number;
-  @Output() changedPage = new EventEmitter<number>();
+  // @Input() page: number;
+  @Output() changedPage = new EventEmitter();
 
   changePage() {
-    this.page ++
-    this.changedPage.emit(this.page);
+    // this.page ++
+    this.changedPage.emit();
   }
 }

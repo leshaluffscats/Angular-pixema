@@ -1,6 +1,4 @@
 <div class="searchWrapper">
-    <form>
-        <input type="text">
-        <img src="../../../assets/images/input-filter-icon.svg">
-    </form>
+    <input type="text" [formControl]="searchQuery" (keyup.enter)="handleSearch()">
+    <img src="../../../assets/images/input-filter-icon.svg">
 </div>

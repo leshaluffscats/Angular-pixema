@@ -1,25 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/moviesService';
+import { Store, select } from '@ngrx/store';
+import { loadMovies } from 'src/app/store/actions/movie.actions';
+import { selectAllMovies } from 'src/app/store/selectors/movies.selector';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss'],
-  // providers: [MoviesService] 
 })
-
 export class MovieListComponent implements OnInit {
-  movies: any[] = [];
-  page: number;
-  constructor(private MoviesService: MoviesService) { }
+  public page: number;
+
+  public movies$ = this.store.select(selectAllMovies);
+
+  constructor(private MoviesService: MoviesService, private store: Store) {}
 
   ngOnInit(): void {
-    this.MoviesService.getMovies(this.page = 1, 12).subscribe(({ docs }) => {
-      this.movies = docs;
-    })
+    this.MoviesService.getMovies((this.page = 1), 12).subscribe(({ docs }) => {
+      this.store.dispatch(loadMovies({ movies: docs }));
+    });
   }
 
-  changePage(page: number) {
-    this.page = page;
+  loadNewMovies() {
+    this.page += 1;
+
+    this.MoviesService.getMovies(this.page, 12).subscribe(({ docs }) => {
+      this.store.dispatch(loadMovies({ movies: docs }));
+    });
   }
 }

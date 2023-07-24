@@ -1,4 +1,4 @@
-<form [formGroup]="signInForm">
+<form [formGroup]="signInForm" (ngSubmit)="handleSignIn()">
     <h2>Sign in</h2>
     <label>
         Email
@@ -7,6 +7,7 @@
     <label>
         Password
         <input type="password" [formControlName]="'password'">
+        <!-- почему нужны 2 пары кавычек -->
     </label>
     <a href="#">Forgot Password?</a>
     <button type="submit" [disabled]="signInForm.invalid" [ngClass]="{disabled: signInForm.invalid}">Sign In</button>
