@@ -17,3 +17,10 @@ body {
   padding: 48px 64px;
   color: $context-color-white;
 }
+
+.light {
+  font-family: "Exo 2", sans-serif;
+  background-color: $context-color-white;
+  padding: 48px 64px;
+  color: $bg-color-black;
+}

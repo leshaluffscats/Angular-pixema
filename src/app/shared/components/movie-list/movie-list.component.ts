@@ -3,6 +3,7 @@ import { MoviesService } from 'src/app/services/moviesService';
 import { Store, select } from '@ngrx/store';
 import { loadMovies } from 'src/app/store/actions/movie.actions';
 import { selectAllMovies } from 'src/app/store/selectors/movies.selector';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-movie-list',
@@ -13,12 +14,16 @@ export class MovieListComponent implements OnInit {
   public page: number;
 
   public movies$ = this.store.select(selectAllMovies);
+  private subscription: Subscription;
 
   constructor(private MoviesService: MoviesService, private store: Store) {}
 
   ngOnInit(): void {
-    this.MoviesService.getMovies((this.page = 1), 12).subscribe(({ docs }) => {
-      this.store.dispatch(loadMovies({ movies: docs }));
+    this.subscription = this.MoviesService.getMovies(
+      (this.page = 1),
+      12
+    ).subscribe(({ docs }) => {
+      this.store.dispatch(loadMovies({ movies: docs, load: false }));
     });
   }
 
@@ -28,5 +33,9 @@ export class MovieListComponent implements OnInit {
     this.MoviesService.getMovies(this.page, 12).subscribe(({ docs }) => {
       this.store.dispatch(loadMovies({ movies: docs }));
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

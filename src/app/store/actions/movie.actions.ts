@@ -2,10 +2,11 @@ import { createAction, props } from '@ngrx/store';
 
 export const loadMovies = createAction(
   '[Home Page] Load movies',
-  props<{ movies: any[] }>()
+
+  props<{ movies: any[]; load?: boolean }>()
 );
-export const filterMovies = createAction('[]');
-export const getTrendsMovies = createAction('[]');
+export const filterMovies = createAction('[Filter page] Filter movies');
+export const getTrendsMovies = createAction('[Trends Page] Trends Movies');
 
 // export const loadMoviesSuccess = createAction(
 //   '[Movie Api] Movie Load Success',

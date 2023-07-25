@@ -15,8 +15,8 @@ export const MovieInitialState: IMovieInitialState = {
 
 export const movieReducer = createReducer(
   MovieInitialState,
-  on(MoviesActions.loadMovies, (state, { movies }) => ({
+  on(MoviesActions.loadMovies, (state, { movies, load }) => ({
     ...state,
-    movies: [...state.movies, ...movies],
+    movies: load ? [...state.movies, ...movies] : [...movies],
   }))
 );
