@@ -1,4 +1,7 @@
 <main>
-    <app-aside></app-aside>
-    <p>trendspage works</p>
+  <app-aside></app-aside>
+  <app-movie-list
+    [movies]="trendsMovies$ | async"
+    (changedPage)="loadNewTrends()"
+  ></app-movie-list>
 </main>

@@ -1,7 +1,7 @@
 <section>
   <div>
     <app-movie-item
-      *ngFor="let movie of movies$ | async"
+      *ngFor="let movie of movies"
       [movieName]="movie.name"
       [image]="movie.poster.previewUrl"
       [movieGenres]="movie.genres"
@@ -9,5 +9,5 @@
     >
     </app-movie-item>
   </div>
-  <app-show-more-btn (changedPage)="loadNewMovies()"></app-show-more-btn>
+  <button (click)="changePage()">Show more</button>
 </section>

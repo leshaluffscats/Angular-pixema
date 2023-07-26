@@ -8,3 +8,18 @@ export const selectAllMovies = createSelector(
   selectMovies,
   (state: IMovieInitialState) => state.movies
 );
+
+export const isLoadingSelector = createSelector(
+  selectMovies,
+  (state: IMovieInitialState) => state.isLoading
+);
+
+export const MovieErrorSelector = createSelector(
+  selectMovies,
+  (state: IMovieInitialState) => state.error
+);
+
+export const selectTrendsMovies = createSelector(
+  selectMovies,
+  (state: IMovieInitialState) => state.trendsMovies
+);

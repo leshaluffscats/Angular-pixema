@@ -1,4 +1,7 @@
 <main>
-    <app-aside></app-aside>
-    <app-movie-list></app-movie-list>
+  <app-aside></app-aside>
+  <app-movie-list
+    [movies]="movies$ | async"
+    (changedPage)="loadNewMovies()"
+  ></app-movie-list>
 </main>

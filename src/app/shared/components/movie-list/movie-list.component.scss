@@ -1,15 +1,31 @@
-@import '../../../../assets/styles/variables.scss';
-@import '../../../../assets/styles/mixins.scss';
-
+@import "../../../../assets/styles/variables.scss";
+@import "../../../../assets/styles/mixins.scss";
 
 section {
+  @include flex;
+  flex-direction: column;
+  div {
     @include flex;
-    flex-direction: column;
-    div {
-        @include flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 30px;
-    }
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  button {
+    @include flex;
+    justify-content: center;
+    padding: 8px 24px;
+    width: 161px;
+    height: 40px;
+    background-color: $graphite;
+    color: $context-color-white;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 64px;
+    transition: all 0.2s ease;
 
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
 }

@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { loadMovies } from 'src/app/store/actions/movie.actions';
-import { MoviesService } from 'src/app/services/moviesService';
+import { selectAllMovies } from 'src/app/store/selectors/movies.selector';
+import { AppState } from 'src/app/store';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-
-// Todo завтра сделать
 export class HomePageComponent implements OnInit {
-  // public page: number;
+  public page = 1;
+  public movies$ = this.store.select(selectAllMovies);
 
-  // constructor(private MoviesService: MoviesService, private store: Store) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // this.MoviesService.getMovies((this.page = 1), 12).subscribe(({ docs }) => {
-    //   this.store.dispatch(loadMovies({ movies: docs }));
-    // });
+    this.store.dispatch(loadMovies({ page: this.page, firstLoad: true }));
+  }
+
+  public loadNewMovies() {
+    this.page += 1;
+    this.store.dispatch(loadMovies({ page: this.page, firstLoad: false }));
   }
 }
