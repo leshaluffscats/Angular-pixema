@@ -1,18 +1,34 @@
 <main>
-    <app-aside></app-aside>
-    <section>
-        <div class="left-side">
-            <img [src]="movie?.poster.url" [alt]="movie?.name">
-            <button>Add to favorites</button>
-        </div>
-        <div class="right-side">
-            <h1>{{movie?.name}}</h1>
-            <div class="movie-ratings">
-                <span title='Оценка Кинопоиска'>{{movie?.rating?.kp}}</span>
-                <span title='Оценка Imdb'>{{movie?.rating?.imdb}}</span>
-            </div>
-            <p>{{movie?.description}}</p>
-            <app-movie-table-data [movieData]="movieData()"></app-movie-table-data>
-        </div>
-    </section>
+  <app-aside></app-aside>
+  <section>
+    <div class="left-side">
+      <div>
+        <img [src]="movie?.poster?.url" [alt]="movie?.name" />
+      </div>
+      <button
+        (click)="toggleFavorites()"
+        [ngClass]="{
+          'fav-button-active': isFavorite,
+          'fav-button': !isFavorite
+        }"
+      >
+        <ng-container *ngIf="isFavorite">Remove From</ng-container>
+        <ng-container *ngIf="!isFavorite">Add to</ng-container>
+        favorites
+      </button>
+      <p></p>
+    </div>
+    <div class="right-side">
+      <h1>{{ movie?.name }}</h1>
+      <div class="movie-ratings">
+        <span title="Оценка Кинопоиска">{{ movie?.rating?.kp }}</span>
+        <span title="Оценка Imdb">{{ movie?.rating?.imdb }}</span>
+      </div>
+      <p>{{ movie?.description }}</p>
+      <app-movie-table-data [movieData]="movieData()"></app-movie-table-data>
+    </div>
+  </section>
 </main>
+
+<app-similar-movies [similarMovies]="movieData().similarMovies">
+</app-similar-movies>

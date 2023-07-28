@@ -1,0 +1,17 @@
+@import "../../../../../assets/styles/mixins.scss";
+@import "../../../../../assets/styles/variables.scss";
+
+section {
+  @include flex;
+  gap: 30px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 7px;
+  }
+}

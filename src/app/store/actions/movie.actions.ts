@@ -21,9 +21,34 @@ export const getTrendsMovies = createAction(
 
 export const getTrendsMoviesSuccess = createAction(
   '[Trends Page] Get trends movies Success',
-  props<{ movies: any; firstLoad?: boolean }>()
+  props<{ trendsMovies: any; firstLoad?: boolean }>()
 );
 export const getTrendsMoviesFailure = createAction(
   '[Trends Page] Get trends movies Failure',
+  props<{ error: string }>()
+);
+
+export const addToFavorites = createAction(
+  '[Movie Content Page] Add to favorites',
+  props<{ favMovie: any }>()
+);
+
+export const removeFromFavorites = createAction(
+  '[Movie Content Page] Remove from favorites',
+  props<{ id: number }>()
+);
+
+export const findMovies = createAction(
+  '[Search bar] Find movies',
+  props<{ searchValue: string }>()
+);
+
+export const findMoviesSuccess = createAction(
+  '[Search bar] Find movies success',
+  props<{ searchMovies: any[] }>()
+);
+
+export const findMoviesFailure = createAction(
+  '[Search bar] Find movies failure',
   props<{ error: string }>()
 );

@@ -1,0 +1,9 @@
+<section>
+  <app-movie-item
+    *ngFor="let movie of similarMovies"
+    [movieId]="movie.id"
+    [movieName]="movie.name"
+    [image]="movie.poster.previewUrl"
+  >
+  </app-movie-item>
+</section>

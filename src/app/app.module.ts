@@ -28,6 +28,7 @@ import { movieReducer } from './store/reducers/movies.reducer';
 import { themeReducer } from './store/reducers/theme.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from './store/effects/movies.effects';
+import { SimilarMoviesComponent } from './modules/movieContent/components/similar-movies/similar-movies.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MoviesEffects } from './store/effects/movies.effects';
     ThemeBtnComponent,
     SignInFormComponent,
     SignInPageComponent,
+    SimilarMoviesComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,10 +28,9 @@ export class MoviesEffects {
       ofType(MoviesActions.getTrendsMovies),
       mergeMap(({ page, size = 12, firstLoad }) =>
         this.moviesService.getTrendsMovies(page, size).pipe(
-          map((movies) =>
-            MoviesActions.getTrendsMoviesSuccess({ movies, firstLoad })
+          map((trendsMovies) =>
+            MoviesActions.getTrendsMoviesSuccess({ trendsMovies, firstLoad })
           ),
-          tap(console.log),
           catchError((error) =>
             of(MoviesActions.getTrendsMoviesFailure({ error: error.message }))
           )

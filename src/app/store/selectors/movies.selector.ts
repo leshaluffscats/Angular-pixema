@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 import { IMovieInitialState } from '../reducers/movies.reducer';
 import { AppState } from '..';
 
-export const selectMovies = (state: any) => state.movies;
+export const selectMovies = (state: AppState) => state.movies;
 
 export const selectAllMovies = createSelector(
   selectMovies,
@@ -22,4 +22,9 @@ export const MovieErrorSelector = createSelector(
 export const selectTrendsMovies = createSelector(
   selectMovies,
   (state: IMovieInitialState) => state.trendsMovies
+);
+
+export const selectFavMovies = createSelector(
+  selectMovies,
+  (state: IMovieInitialState) => state.favMovies
 );
