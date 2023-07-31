@@ -3,20 +3,18 @@ import * as MoviesActions from '../actions/movie.actions';
 
 export interface IMovieInitialState {
   movies: any[];
-  filteredMovies: any[];
   trendsMovies: any[];
   favMovies: any[];
-  searchMovies: any[];
+  foundMovies: any[];
   isLoading: boolean;
   error: null | string;
 }
 
 export const MovieInitialState: IMovieInitialState = {
   movies: [],
-  filteredMovies: [],
   trendsMovies: [],
   favMovies: [],
-  searchMovies: [],
+  foundMovies: [],
   isLoading: false,
   error: null,
 };
@@ -68,12 +66,12 @@ export const movieReducer = createReducer(
   // Find
   on(MoviesActions.findMovies, (state) => ({
     ...state,
-    isLoading: false,
+    isLoading: true,
   })),
 
-  on(MoviesActions.findMoviesSuccess, (state, { searchMovies }) => ({
+  on(MoviesActions.findMoviesSuccess, (state, { foundMovies }) => ({
     ...state,
-    searchMovies: searchMovies,
+    foundMovies: [...foundMovies.docs],
     isLoading: false,
   })),
 
@@ -92,5 +90,21 @@ export const movieReducer = createReducer(
   on(MoviesActions.removeFromFavorites, (state, { id }) => ({
     ...state,
     favMovies: state.favMovies.filter((favMovie) => favMovie.id !== id),
+  })),
+
+  // Filter
+  on(MoviesActions.filterMovies, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+
+  on(MoviesActions.filterMoviesSuccess, (state, { foundMovies }) => ({
+    ...state,
+    foundMovies: [...foundMovies.docs],
+  })),
+
+  on(MoviesActions.filterMoviesFailure, (state, { error }) => ({
+    ...state,
+    error: error,
   }))
 );

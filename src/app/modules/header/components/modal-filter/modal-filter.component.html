@@ -1,0 +1,35 @@
+<div class="filter-wrapper">
+  <form [formGroup]="filterForm">
+    <div class="filter-header">
+      <h2>Filters</h2>
+      <span (click)="toggleFilter()">&#10006;</span>
+    </div>
+    <div class="filter-genre-block">
+      Genre
+      <select name="genre-select" formControlName="genre">
+        <option *ngFor="let genre of allGenres" [value]="genre.value">
+          {{ genre.label }}
+        </option>
+      </select>
+    </div>
+    <div class="filter-inputs">
+      Years
+      <div>
+        <input type="text" placeholder="From" formControlName="yearFrom" />
+        <input type="text" placeholder="To" formControlName="yearTo" />
+      </div>
+    </div>
+    <div class="filter-inputs">
+      Rating
+      <div>
+        <input type="text" placeholder="From" formControlName="ratingFrom" />
+        <input type="text" placeholder="To" formControlName="ratingTo" />
+      </div>
+    </div>
+
+    <div class="filter-buttons-block">
+      <button type="reset">Reset</button>
+      <button (click)="submitForm()">Show results</button>
+    </div>
+  </form>
+</div>

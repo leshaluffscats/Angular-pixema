@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { MoviesService } from 'src/app/services/moviesService';
+import { MoviesService } from 'src/app/services/movies.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';

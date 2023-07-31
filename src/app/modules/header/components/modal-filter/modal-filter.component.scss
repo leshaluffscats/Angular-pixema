@@ -1,0 +1,106 @@
+@import "../../../../../assets/styles/variables.scss";
+@import "../../../../../assets/styles/mixins.scss";
+
+.filter-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+
+  form {
+    @include flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $bg-color-dark;
+    color: $context-color-white;
+    justify-content: space-between;
+    padding: 48px 40px;
+    overflow: hidden;
+
+    div {
+      width: 100%;
+    }
+
+    .filter-header {
+      @include flex;
+      margin-bottom: 38px;
+      justify-content: space-between;
+
+      span {
+        cursor: pointer;
+        font-weight: 600;
+      }
+    }
+
+    .filter-genre-block {
+      margin-bottom: 12px;
+
+      select {
+        display: block;
+        height: 50px;
+        width: 100%;
+        color: $context-color-white;
+        background-color: transparent;
+        border: 1px solid $graphite;
+        border-radius: 10px;
+        margin-top: 8px;
+        font-size: 18px;
+
+        option {
+          display: block;
+          background-color: $bg-color-dark;
+          color: $context-color-white;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+    .filter-inputs {
+      div {
+        @include flex;
+        margin-bottom: 14px;
+        justify-content: space-between;
+        gap: 10px;
+
+        input {
+          width: 50%;
+          height: 50px;
+          @include bodytext;
+          background-color: $graphite;
+          border-radius: 10px;
+          margin-top: 8px;
+          padding: 0 20px;
+          color: $context-color-white;
+        }
+      }
+    }
+
+    .filter-buttons-block {
+      @include flex;
+      gap: 10px;
+
+      button {
+        width: 100%;
+        height: 56px;
+        border-radius: 10px;
+        margin: 40px 0 32px;
+        cursor: pointer;
+        @include bodytext;
+        background-color: $primary-color;
+        color: $context-color-white;
+      }
+
+      button:first-of-type {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

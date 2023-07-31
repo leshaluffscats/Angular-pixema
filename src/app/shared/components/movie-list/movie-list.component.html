@@ -3,7 +3,7 @@
     <app-movie-item
       *ngFor="let movie of movies"
       [movieName]="movie.name"
-      [image]="movie.poster.previewUrl"
+      [image]="movie.poster?.previewUrl || movie.poster"
       [movieGenres]="movie.genres"
       [movieId]="movie.id"
     >

@@ -7,6 +7,7 @@ import {
   API_HEADER,
   SECOND_API_HEADER,
 } from '../shared/constants/constants';
+import { IFilterParams } from '../shared/interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +46,23 @@ export class MoviesService {
   getTrendsMovies(page: string | number, limit: string | number) {
     return this.http.get(
       `${API_URL}v1.3/movie?page=${page}&limit=${limit}&year=${new Date().getFullYear()}`,
+      {
+        // headers: THIRD_API_HEADER,
+        headers: SECOND_API_HEADER,
+        // headers: API_HEADER,
+      }
+    );
+  }
+
+  getFilteredMovies(filterParams: IFilterParams) {
+    return this.http.get(
+      `${API_URL}v1.3/movie?sortField=sortType=-1&year=${
+        filterParams.yearFrom
+      }-${filterParams.yearTo}${
+        filterParams.genre === 'Сбросить фильтр'
+          ? ''
+          : `&genres.name=${filterParams.genre?.toLowerCase()}`
+      }&rating.kp=${filterParams.ratingFrom}-${filterParams.ratingTo}&limit=12`,
       {
         // headers: THIRD_API_HEADER,
         headers: SECOND_API_HEADER,

@@ -1,4 +1,12 @@
 <div class="searchWrapper">
-    <input type="text" [formControl]="searchQuery" (keyup.enter)="handleSearch()">
-    <img src="../../../assets/images/input-filter-icon.svg">
+  <input
+    type="text"
+    [formControl]="searchQuery"
+    (keyup.enter)="handleSearch()"
+  />
+  <img
+    src="../../../assets/images/input-filter-icon.svg"
+    (click)="toggleFilter()"
+  />
+  <app-modal-filter *ngIf="open" (toggle)="toggleFilter()"></app-modal-filter>
 </div>

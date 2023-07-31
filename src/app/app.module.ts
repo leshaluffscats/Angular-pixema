@@ -29,6 +29,9 @@ import { themeReducer } from './store/reducers/theme.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from './store/effects/movies.effects';
 import { SimilarMoviesComponent } from './modules/movieContent/components/similar-movies/similar-movies.component';
+import { SearchPageComponent } from './modules/search-page/search-page.component';
+
+import { ModalFilterComponent } from './modules/header/components/modal-filter/modal-filter.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { SimilarMoviesComponent } from './modules/movieContent/components/simila
     SignInFormComponent,
     SignInPageComponent,
     SimilarMoviesComponent,
+    SearchPageComponent,
+    ModalFilterComponent,
   ],
   imports: [
     BrowserModule,

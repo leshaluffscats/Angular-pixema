@@ -1,5 +1,7 @@
 import { createAction, props } from '@ngrx/store';
+import { IFilterParams } from 'src/app/shared/interfaces/interfaces';
 
+// Load
 export const loadMovies = createAction(
   '[Home Page] Load movies',
   props<{ page: number; size?: number; firstLoad: boolean }>()
@@ -14,6 +16,7 @@ export const loadMoviesFailure = createAction(
   props<{ error: string }>()
 );
 
+// Trends
 export const getTrendsMovies = createAction(
   '[Trends Page] Trends Movies',
   props<{ page: number; size?: number; firstLoad: boolean }>()
@@ -28,6 +31,7 @@ export const getTrendsMoviesFailure = createAction(
   props<{ error: string }>()
 );
 
+// Favorites
 export const addToFavorites = createAction(
   '[Movie Content Page] Add to favorites',
   props<{ favMovie: any }>()
@@ -38,17 +42,34 @@ export const removeFromFavorites = createAction(
   props<{ id: number }>()
 );
 
+// Find
 export const findMovies = createAction(
   '[Search bar] Find movies',
-  props<{ searchValue: string }>()
+  props<{ searchValue: string | null }>()
 );
 
 export const findMoviesSuccess = createAction(
   '[Search bar] Find movies success',
-  props<{ searchMovies: any[] }>()
+  props<{ foundMovies: any }>()
 );
 
 export const findMoviesFailure = createAction(
   '[Search bar] Find movies failure',
+  props<{ error: string }>()
+);
+
+// Filter
+export const filterMovies = createAction(
+  '[Modal filter] Filter movies',
+  props<{ filterParams: IFilterParams }>()
+);
+
+export const filterMoviesSuccess = createAction(
+  '[Modal filter] Filter movies success',
+  props<{ foundMovies: any }>()
+);
+
+export const filterMoviesFailure = createAction(
+  '[Modal filter] Filter movies failure',
   props<{ error: string }>()
 );

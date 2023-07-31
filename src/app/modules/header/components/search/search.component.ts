@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MoviesService } from 'src/app/services/moviesService';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store';
+import { findMovies } from 'src/app/store/actions/movie.actions';
 
 @Component({
   selector: 'app-search',
@@ -8,11 +11,23 @@ import { MoviesService } from 'src/app/services/moviesService';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  searchQuery = new FormControl('');
+  public searchQuery = new FormControl('');
+  public open = false;
 
-  handleSearch() {
-    this.moviesService.searchForAMovie(this.searchQuery.value).subscribe();
+  handleSearch(): void {
+    this.store.dispatch(findMovies({ searchValue: this.searchQuery.value }));
+    this.router.navigate(['found-movies']);
   }
 
-  constructor(private moviesService: MoviesService) {}
+  toggleFilter() {
+    this.open = !this.open;
+
+    if (this.open) {
+      document.body.classList.add('hidden');
+    } else {
+      document.body.classList.remove('hidden');
+    }
+  }
+
+  constructor(private store: Store<AppState>, private router: Router) {}
 }
