@@ -101,10 +101,12 @@ export const movieReducer = createReducer(
   on(MoviesActions.filterMoviesSuccess, (state, { foundMovies }) => ({
     ...state,
     foundMovies: [...foundMovies.docs],
+    isLoading: false,
   })),
 
   on(MoviesActions.filterMoviesFailure, (state, { error }) => ({
     ...state,
     error: error,
+    isLoading: false,
   }))
 );

@@ -1,0 +1,9 @@
+@import "../../../assets/styles/mixins.scss";
+
+:host {
+  @include flex;
+
+  .aside-menu {
+    align-self: flex-start;
+  }
+}

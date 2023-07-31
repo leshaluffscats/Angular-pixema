@@ -17,8 +17,8 @@ import { HomePageComponent } from './modules/home/pages/home-page/home-page.comp
 import { SettingsPageComponent } from './modules/settings/pages/settings-page/settings-page.component';
 import { TrendsPageComponent } from './modules/trends/pages/trends-page/trends-page.component';
 import { FavoritesPageComponent } from './modules/favorites/pages/favorites-page/favorites-page.component';
-import { MovieContentPageComponent } from './modules/movieContent/pages/movie-content/movie-content.component';
-import { MovieTableDataComponent } from './modules/movieContent/components/movie-table-data/movie-table-data.component';
+import { MovieContentPageComponent } from './modules/movie-сontent/pages/movie-content/movie-content.component';
+import { MovieTableDataComponent } from './modules/movie-сontent/components/movie-table-data/movie-table-data.component';
 import { ThemeBtnComponent } from './shared/components/theme-btn/theme-btn.component';
 import { SignInFormComponent } from './modules/signIn/components/sign-in-form/sign-in-form.component';
 import { SignInPageComponent } from './modules/signIn/pages/sign-in-page/sign-in-page.component';
@@ -28,10 +28,11 @@ import { movieReducer } from './store/reducers/movies.reducer';
 import { themeReducer } from './store/reducers/theme.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { MoviesEffects } from './store/effects/movies.effects';
-import { SimilarMoviesComponent } from './modules/movieContent/components/similar-movies/similar-movies.component';
+import { SimilarMoviesComponent } from './modules/movie-сontent/components/similar-movies/similar-movies.component';
 import { SearchPageComponent } from './modules/search-page/search-page.component';
 
 import { ModalFilterComponent } from './modules/header/components/modal-filter/modal-filter.component';
+import { CoreComponent } from './modules/core/core.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ModalFilterComponent } from './modules/header/components/modal-filter/m
     SimilarMoviesComponent,
     SearchPageComponent,
     ModalFilterComponent,
+    CoreComponent,
   ],
   imports: [
     BrowserModule,

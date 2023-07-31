@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
 
+// export interface IMovieTableData {
+//   countries: string[];
+// }
+
 @Component({
   selector: 'app-movie-table-data',
   templateUrl: './movie-table-data.component.html',

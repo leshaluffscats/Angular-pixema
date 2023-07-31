@@ -5,6 +5,7 @@ section {
   @include flex;
   gap: 30px;
   overflow: auto;
+  max-width: 1170px;
 
   &::-webkit-scrollbar {
     height: 10px;
