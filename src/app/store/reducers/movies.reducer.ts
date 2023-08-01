@@ -3,18 +3,14 @@ import * as MoviesActions from '../actions/movie.actions';
 
 export interface IMovieInitialState {
   movies: any[];
-  trendsMovies: any[];
   favMovies: any[];
-  foundMovies: any[];
   isLoading: boolean;
   error: null | string;
 }
 
 export const MovieInitialState: IMovieInitialState = {
   movies: [],
-  trendsMovies: [],
   favMovies: [],
-  foundMovies: [],
   isLoading: false,
   error: null,
 };
@@ -51,9 +47,9 @@ export const movieReducer = createReducer(
     (state, { firstLoad, trendsMovies }) => ({
       ...state,
       isLoading: false,
-      trendsMovies: firstLoad
+      movies: firstLoad
         ? [...trendsMovies.docs]
-        : [...state.trendsMovies, ...trendsMovies.docs],
+        : [...state.movies, ...trendsMovies.docs],
     })
   ),
 
@@ -71,7 +67,7 @@ export const movieReducer = createReducer(
 
   on(MoviesActions.findMoviesSuccess, (state, { foundMovies }) => ({
     ...state,
-    foundMovies: [...foundMovies.docs],
+    movies: [...foundMovies.docs],
     isLoading: false,
   })),
 
@@ -100,7 +96,7 @@ export const movieReducer = createReducer(
 
   on(MoviesActions.filterMoviesSuccess, (state, { foundMovies }) => ({
     ...state,
-    foundMovies: [...foundMovies.docs],
+    movies: [...foundMovies.docs],
     isLoading: false,
   })),
 

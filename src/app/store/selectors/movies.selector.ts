@@ -19,17 +19,10 @@ export const MovieErrorSelector = createSelector(
   (state: IMovieInitialState) => state.error
 );
 
-export const selectTrendsMovies = createSelector(
-  selectMovies,
-  (state: IMovieInitialState) => state.trendsMovies
-);
 
 export const selectFavMovies = createSelector(
   selectMovies,
   (state: IMovieInitialState) => state.favMovies
 );
 
-export const selectFoundMovies = createSelector(
-  selectMovies,
-  (state: IMovieInitialState) => state.foundMovies
-);
+

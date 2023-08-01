@@ -33,6 +33,7 @@ import { SearchPageComponent } from './modules/search-page/search-page.component
 
 import { ModalFilterComponent } from './modules/header/components/modal-filter/modal-filter.component';
 import { CoreComponent } from './modules/core/core.component';
+import { metaReducers } from './store/reducers/storage.metareducer';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { CoreComponent } from './modules/core/core.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ movies: movieReducer, theme: themeReducer }),
+    StoreModule.forRoot({ movies: movieReducer, theme: themeReducer }, {metaReducers}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([MoviesEffects]),
   ],

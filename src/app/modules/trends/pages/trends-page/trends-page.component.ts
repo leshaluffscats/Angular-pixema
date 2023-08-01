@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
-import { selectTrendsMovies } from 'src/app/store/selectors/movies.selector';
+import { selectAllMovies } from 'src/app/store/selectors/movies.selector';
 import { getTrendsMovies } from 'src/app/store/actions/movie.actions';
 
 @Component({
@@ -10,7 +10,7 @@ import { getTrendsMovies } from 'src/app/store/actions/movie.actions';
   styleUrls: ['./trends-page.component.scss'],
 })
 export class TrendsPageComponent implements OnInit {
-  public trendsMovies$ = this.store.select(selectTrendsMovies);
+  public trendsMovies$ = this.store.select(selectAllMovies);
   public page = 1;
   constructor(private store: Store<AppState>) {}
 

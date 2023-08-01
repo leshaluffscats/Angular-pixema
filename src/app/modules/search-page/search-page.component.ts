@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store';
-import { selectFoundMovies } from 'src/app/store/selectors/movies.selector';
+import { selectAllMovies } from 'src/app/store/selectors/movies.selector';
 
 @Component({
   selector: 'app-search-page',
@@ -15,7 +15,7 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.store
-      .select(selectFoundMovies)
+      .select(selectAllMovies)
       .subscribe((foundMovies) => (this.foundMovies = foundMovies));
   }
 }
