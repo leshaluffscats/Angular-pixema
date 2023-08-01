@@ -1,13 +1,13 @@
-import { ActionReducer, Action, MetaReducer } from '@ngrx/store';
+import { ActionReducer, MetaReducer } from '@ngrx/store';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { merge, pick } from 'lodash-es';
 
 const ls = new LocalStorageService();
 
-export const storageMetaReducer = <S, A extends Action = Action>(reducer: ActionReducer<S, A>) => {
-    let onInit = true;
+export function storageMetaReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+    let onInit = true; //after load and refresh
 
-    return function (state: S, action: A): S {
+    return function (state, action) {
         const nextState = reducer(state, action);
 
         if (onInit) {
@@ -16,6 +16,7 @@ export const storageMetaReducer = <S, A extends Action = Action>(reducer: Action
             return merge(nextState, savedState);
         }
 
+        // save the next state to the application storage.
         const stateToSave = pick(nextState, ["theme"]);
         ls.setItem("theme", stateToSave);
         return nextState;

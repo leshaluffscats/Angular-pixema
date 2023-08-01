@@ -1,6 +1,6 @@
 <main>
   <app-movie-list
-    [movies]="trendsMovies$ | async"
+    [movies]="trendsMovies"
     (changedPage)="loadNewTrends()"
   ></app-movie-list>
 </main>

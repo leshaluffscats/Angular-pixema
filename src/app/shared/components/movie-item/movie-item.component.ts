@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IMovieGenres } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-movie-item',
@@ -8,10 +9,10 @@ import { Component, Input } from '@angular/core';
 export class MovieItemComponent {
   @Input() image: string;
   @Input() movieName: string;
-  @Input() movieGenres: any[];
-  @Input() movieId: string;
+  @Input() movieGenres: IMovieGenres[];
+  @Input() movieId: number;
 
-  cutGenresArr() {
+  public cutGenresArr(): IMovieGenres[] {
     return this.movieGenres?.slice(0, 3);
   }
 }

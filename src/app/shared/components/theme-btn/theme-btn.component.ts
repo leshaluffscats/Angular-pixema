@@ -10,13 +10,18 @@ import { selectTheme } from 'src/app/store/selectors/theme.selector';
   styleUrls: ['./theme-btn.component.scss'],
 })
 export class ThemeBtnComponent {
+  public isChecked: boolean;
   public theme$ = this.store
     .select(selectTheme)
-    .subscribe((isDark) =>
-      isDark
-        ? document.body.classList.remove('light')
-        : document.body.classList.add('light')
-    );
+    .subscribe((isDark) => {
+      if (isDark) {
+        document.body.classList.remove('light');
+        this.isChecked = false;
+      } else {
+        document.body.classList.add('light')
+        this.isChecked = true;
+      }
+    });
 
   constructor(private store: Store<AppState>) { }
 

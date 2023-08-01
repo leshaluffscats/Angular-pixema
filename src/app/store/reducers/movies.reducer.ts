@@ -1,9 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import * as MoviesActions from '../actions/movie.actions';
+import { IMovie } from 'src/app/shared/interfaces/interfaces';
 
 export interface IMovieInitialState {
-  movies: any[];
-  favMovies: any[];
+  movies: IMovie[];
+  favMovies: IMovie[];
   isLoading: boolean;
   error: null | string;
 }

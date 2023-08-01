@@ -33,7 +33,7 @@ import { SearchPageComponent } from './modules/search-page/search-page.component
 
 import { ModalFilterComponent } from './modules/header/components/modal-filter/modal-filter.component';
 import { CoreComponent } from './modules/core/core.component';
-import { metaReducers } from './store/reducers/storage.metareducer';
+import { metaReducers, storageMetaReducer } from './store/reducers/storage.metareducer';
 
 @NgModule({
   declarations: [
@@ -65,11 +65,11 @@ import { metaReducers } from './store/reducers/storage.metareducer';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ movies: movieReducer, theme: themeReducer }, {metaReducers}),
+    StoreModule.forRoot({ movies: movieReducer, theme: themeReducer }, { metaReducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([MoviesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
